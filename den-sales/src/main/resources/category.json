@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Electronics",
+    "description": "Devices and gadgets related to technology.",
+    "enabled": true
+  },
+  {
+    "name": "Books",
+    "description": "A wide range of literature and educational materials.",
+    "enabled": true
+  },
+  {
+    "name": "Clothing",
+    "description": "Apparel for men, women, and children.",
+    "enabled": true
+  },
+  {
+    "name": "Home Appliances",
+    "description": "Essential appliances for home use.",
+    "enabled": false
+  },
+  {
+    "name": "Sports",
+    "description": "Equipment and clothing for various sports.",
+    "enabled": true
+  }
+]
