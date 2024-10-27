@@ -2,16 +2,19 @@
   {
     "name": "Product 1",
     "price": 19.99,
-    "active": true
+    "description" : "regular",
+    "enabled": true
   },
   {
     "name": "Product 2",
     "price": 29.99,
-    "active": true
+    "description": "buena",
+    "enabled": true
   },
   {
     "name": "Product 3",
     "price": 9.99,
-    "active": false
+    "description" : "regular",
+    "enabled": false
   }
 ]
