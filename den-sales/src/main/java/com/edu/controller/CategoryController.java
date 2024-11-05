@@ -4,6 +4,7 @@ import com.edu.dto.CategoryDTO;
 import com.edu.model.Category;
 import com.edu.record.CategoryRecord;
 import com.edu.service.impl.CategoryServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -110,14 +111,14 @@ public class CategoryController {
 
     //1
     @PostMapping
-    public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto) throws Exception {
+    public ResponseEntity<CategoryDTO> insert(@Valid @RequestBody CategoryDTO dto) throws Exception {
         Category guardar = service.save(convertEntity(dto));
         return new ResponseEntity<>(convertDto(guardar), HttpStatus.CREATED);
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDTO> update(@PathVariable Integer id, @RequestBody CategoryDTO dto) throws Exception {
+    public ResponseEntity<CategoryDTO> update(@Valid @PathVariable Integer id, @RequestBody CategoryDTO dto) throws Exception {
         Category modificar = service.update(id, convertEntity(dto));
         return new ResponseEntity<>(convertDto(modificar), HttpStatus.OK);
     }
