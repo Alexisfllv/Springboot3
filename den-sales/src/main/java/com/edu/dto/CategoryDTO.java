@@ -20,9 +20,9 @@ public class CategoryDTO {
 
     @NotNull
     @NotEmpty
-    @NotBlank(message = "no enviar espacios")
-    @Size(min = 2, max = 50 , message = "minimo 2")
-    private String nameCategory;
+    @NotBlank
+    @Size(min = 2, max = 50 )
+    private String nameofCategory;
 
     @NotNull
     @NotEmpty
@@ -32,6 +32,5 @@ public class CategoryDTO {
 
 
     private boolean enabledCategory;
-    private String codeCategory;
 
 }

@@ -1,20 +1,23 @@
 [
   {
-    "name": "Product 1",
-    "price": 19.99,
-    "description" : "regular",
-    "enabled": true
+    "idCategory" : 1,
+    "nameProduct" : "PS5",
+    "priceProduct" : 1500.00,
+    "descriptionProduct" : "Sony",
+    "enabledProduct" : true
   },
   {
-    "name": "Product 2",
-    "price": 29.99,
-    "description": "buena",
-    "enabled": true
+    "idCategory" : 2,
+    "nameProduct" : "JAVACOOK",
+    "priceProduct" : 80.00,
+    "descriptionProduct" : "JAVA 8+",
+    "enabledProduct" : true
   },
   {
-    "name": "Product 3",
-    "price": 9.99,
-    "description" : "regular",
-    "enabled": false
+    "idCategory" : 5,
+    "nameProduct" : "BalonE2020",
+    "priceProduct" : 50.00,
+    "descriptionProduct" : "balon mundial",
+    "enabledProduct" : true
   }
 ]
