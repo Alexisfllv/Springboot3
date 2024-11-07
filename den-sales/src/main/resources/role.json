@@ -1,0 +1,27 @@
+[
+  {
+    "idRole": 1,
+    "nameRole": "ADMIN",
+    "enabledRole": true
+  },
+  {
+    "idRole": 2,
+    "nameRole": "USER",
+    "enabledRole": true
+  },
+  {
+    "idRole": 3,
+    "nameRole": "MODERATOR",
+    "enabledRole": false
+  },
+  {
+    "idRole": 4,
+    "nameRole": "GUEST",
+    "enabledRole": true
+  },
+  {
+    "idRole": 5,
+    "nameRole": "SUPERADMIN",
+    "enabledRole": true
+  }
+]

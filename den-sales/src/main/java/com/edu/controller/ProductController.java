@@ -100,7 +100,7 @@ public class ProductController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update(@Valid @PathVariable Integer id, @RequestBody ProductDTO dto) throws Exception {
+    public ResponseEntity<ProductDTO> update(@Valid @PathVariable("id") Integer id, @RequestBody ProductDTO dto) throws Exception {
         Product modificar = service.update(id, mapperUtil.map(dto,Product.class));
         return new ResponseEntity<>(mapperUtil.map(modificar,ProductDTO.class), HttpStatus.OK);
     }

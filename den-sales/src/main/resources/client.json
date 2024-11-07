@@ -1,0 +1,47 @@
+[
+  {
+    "firstNameClient": "Carlos",
+    "lastNameClient": "Gonzalez",
+    "cardIdClient": "12345678",
+    "emailClient": "carlos.gonzalez@example.com",
+    "phoneNumberClient": "912345678",
+    "addressClient": "Av. Los Olivos 123, Lima",
+    "countryClient": "Peru"
+  },
+  {
+    "firstNameClient": "Ana",
+    "lastNameClient": "Torres",
+    "cardIdClient": "87654321",
+    "emailClient": "ana.torres@example.com",
+    "phoneNumberClient": "987654321",
+    "addressClient": "Jr. Las Flores 456, Cusco",
+    "countryClient": "Peru"
+  },
+  {
+    "firstNameClient": "Luis",
+    "lastNameClient": "Martinez",
+    "cardIdClient": "11223344",
+    "emailClient": "luis.martinez@example.com",
+    "phoneNumberClient": "923456789",
+    "addressClient": "Calle Mayor 789, Buenos Aires",
+    "countryClient": "Argentina"
+  },
+  {
+    "firstNameClient": "Maria",
+    "lastNameClient": "Lopez",
+    "cardIdClient": "33445566",
+    "emailClient": "maria.lopez@example.com",
+    "phoneNumberClient": "934567890",
+    "addressClient": "Av. Libertad 234, Santiago",
+    "countryClient": "Chile"
+  },
+  {
+    "firstNameClient": "Jorge",
+    "lastNameClient": "Ramirez",
+    "cardIdClient": "55667788",
+    "emailClient": "jorge.ramirez@example.com",
+    "phoneNumberClient": "945678901",
+    "addressClient": "Calle Real 101, Ciudad de Guatemala",
+    "countryClient": "Guatemala"
+  }
+]

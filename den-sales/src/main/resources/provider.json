@@ -1,0 +1,27 @@
+[
+  {
+    "nameProvider": "Proveedor 1",
+    "addressProvider": "Calle 123, Lima, Perú",
+    "enabledProvider": true
+  },
+  {
+    "nameProvider": "Proveedor 2",
+    "addressProvider": "Avenida 456, Arequipa, Perú",
+    "enabledProvider": false
+  },
+  {
+    "nameProvider": "Proveedor 3",
+    "addressProvider": "Calle Ficticia 789, Cusco, Perú",
+    "enabledProvider": true
+  },
+  {
+    "nameProvider": "Proveedor 4",
+    "addressProvider": "Boulevard Principal 1010, Trujillo, Perú",
+    "enabledProvider": false
+  },
+  {
+    "nameProvider": "Proveedor 5",
+    "addressProvider": "Zona Industrial, Piura, Perú",
+    "enabledProvider": true
+  }
+]

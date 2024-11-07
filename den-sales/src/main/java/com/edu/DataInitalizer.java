@@ -1,10 +1,8 @@
 package com.edu;
 
-import com.edu.dto.ProductDTO;
-import com.edu.model.Category;
-import com.edu.model.Product;
-import com.edu.service.impl.CategoryServiceImpl;
-import com.edu.service.impl.ProductServiceImpl;
+import com.edu.dto.*;
+import com.edu.model.*;
+import com.edu.service.impl.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +22,21 @@ public class DataInitalizer implements CommandLineRunner {
 
     private final CategoryServiceImpl categoryService;
     private final ProductServiceImpl productService;
+    private final ClientServiceImpl clientService;
+    private final RoleServiceImpl roleService;
+    private final UserServiceImpl userService;
+    private final ProviderServiceImpl providerService;
+
     private final ModelMapper defaultModelMapper;
 
     @Override
     public void run(String... args) throws Exception {
         cargarCategoryJson();
         cargarProductJson();
+        cargarClientJson();
+        cargarRoleJson();
+        cargarUserJson();
+        cargarProviderJson();
 
     }
 
@@ -45,18 +52,6 @@ public class DataInitalizer implements CommandLineRunner {
         }
     }
 
-    private void cargarProductJsons() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try(InputStream inputStream = getClass().getResourceAsStream("/product.json")){
-            List<Product> products = objectMapper.readValue(inputStream, new TypeReference<List<Product>>() {});
-
-            for (Product product : products) {
-                productService.save(product);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
     private void cargarProductJson() {
@@ -70,6 +65,73 @@ public class DataInitalizer implements CommandLineRunner {
                 Product product = defaultModelMapper.map(productDTO, Product.class);
                 // Guarda la entidad Product
                 productService.save(product);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void cargarClientJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try (InputStream inputStream = getClass().getResourceAsStream("/client.json")) {
+            // Lee el JSON y convierte a una lista de ProductDTO
+            List<ClientDTO> clientDTOS = objectMapper.readValue(inputStream, new TypeReference<List<ClientDTO>>() {});
+
+            for (ClientDTO clientDTO : clientDTOS) {
+                // Mapea ProductDTO a la entidad Product
+                Client client = defaultModelMapper.map(clientDTO, Client.class);
+                // Guarda la entidad Product
+                clientService.save(client);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarRoleJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try (InputStream inputStream = getClass().getResourceAsStream("/role.json")) {
+            // Lee el JSON y convierte a una lista de ProductDTO
+            List<RoleDTO> roleDTOS = objectMapper.readValue(inputStream, new TypeReference<List<RoleDTO>>() {});
+
+            for (RoleDTO roleDTO : roleDTOS) {
+                // Mapea ProductDTO a la entidad Product
+                Role role = defaultModelMapper.map(roleDTO, Role.class);
+                // Guarda la entidad Product
+                roleService.save(role);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarUserJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try (InputStream inputStream = getClass().getResourceAsStream("/user.json")) {
+            // Lee el JSON y convierte a una lista de ProductDTO
+            List<UserDTO> userDTOS = objectMapper.readValue(inputStream, new TypeReference<List<UserDTO>>() {});
+
+            for (UserDTO userDTO : userDTOS) {
+                // Mapea ProductDTO a la entidad Product
+                User user = defaultModelMapper.map(userDTO, User.class);
+                // Guarda la entidad Product
+                userService.save(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarProviderJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try (InputStream inputStream = getClass().getResourceAsStream("/provider.json")) {
+            // Lee el JSON y convierte a una lista de ProductDTO
+            List<ProviderDTO> providerDTOS = objectMapper.readValue(inputStream, new TypeReference<List<ProviderDTO>>() {});
+
+            for (ProviderDTO providerDTO : providerDTOS) {
+                // Mapea ProductDTO a la entidad Product
+                Provider provider = defaultModelMapper.map(providerDTO, Provider.class);
+                // Guarda la entidad Product
+                providerService.save(provider);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,0 +1,37 @@
+[
+  {
+    "idUser": 1,
+    "idRole": 1,
+    "usernameUser": "johndoe",
+    "passwordUser": "password123",
+    "enabledUser": true
+  },
+  {
+    "idUser": 2,
+    "idRole": 2,
+    "usernameUser": "janedoe",
+    "passwordUser": "securePass456",
+    "enabledUser": false
+  },
+  {
+    "idUser": 3,
+    "idRole": 2,
+    "usernameUser": "mikejohnson",
+    "passwordUser": "mypassword789",
+    "enabledUser": true
+  },
+  {
+    "idUser": 4,
+    "idRole": 4,
+    "usernameUser": "sarahsmith",
+    "passwordUser": "anotherPass321",
+    "enabledUser": true
+  },
+  {
+    "idUser": 5,
+    "idRole": 5,
+    "usernameUser": "tommytaylor",
+    "passwordUser": "passTest999",
+    "enabledUser": false
+  }
+]
