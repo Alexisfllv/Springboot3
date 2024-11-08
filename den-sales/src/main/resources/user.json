@@ -1,37 +1,50 @@
 [
   {
     "idUser": 1,
-    "idRole": 1,
+    "role": {
+      "idRole": 1
+    },
     "usernameUser": "johndoe",
-    "passwordUser": "password123",
+    "passwordUser": "$2a$12$da1Ho687zmnL73nPf6JijON5zsCLeGrYZcwEUaNpwHO2yB9jBOi7y",
     "enabledUser": true
   },
   {
     "idUser": 2,
-    "idRole": 2,
+    "role": {
+      "idRole": 2
+    },
     "usernameUser": "janedoe",
-    "passwordUser": "securePass456",
+    "passwordUser": "$2a$12$kDF7Sue3RN4cOlEKsH2yS.lq1rVWeqgXi.vDYJttq1m7yHCI5vAL2",
     "enabledUser": false
   },
   {
     "idUser": 3,
-    "idRole": 2,
+    "role": {
+      "idRole": 2
+    },
     "usernameUser": "mikejohnson",
-    "passwordUser": "mypassword789",
+    "passwordUser": "$2a$12$0qFrLurXzwZwWZUEkG2t0emzPdlKOrZwXY2UUq3KhCZojHBXb7rNy",
     "enabledUser": true
   },
   {
     "idUser": 4,
-    "idRole": 4,
+    "role": {
+      "idRole": 4
+    },
     "usernameUser": "sarahsmith",
-    "passwordUser": "anotherPass321",
+    "passwordUser": "$2a$12$rZAWU0XvBmefoA9UYOH91e.FOdYGy8Q3wRFotqKZx.aOXzvOdWTZm",
     "enabledUser": true
   },
   {
     "idUser": 5,
-    "idRole": 5,
+    "role": {
+      "idRole": 5
+    },
     "usernameUser": "tommytaylor",
-    "passwordUser": "passTest999",
+    "passwordUser": "$2a$12$y74eeB5BC0WHwrASs9Tpn./rhFJ4NK/EoWit7pWs0wZo3P7gTbvUa",
     "enabledUser": false
   }
+
+
+
 ]
