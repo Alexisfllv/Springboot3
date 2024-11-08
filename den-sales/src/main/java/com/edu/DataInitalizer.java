@@ -26,6 +26,7 @@ public class DataInitalizer implements CommandLineRunner {
     private final RoleServiceImpl roleService;
     private final UserServiceImpl userService;
     private final ProviderServiceImpl providerService;
+    private final SaleServiceImpl saleService;
 
     private final ModelMapper defaultModelMapper;
 
@@ -37,6 +38,7 @@ public class DataInitalizer implements CommandLineRunner {
         cargarRoleJson();
         cargarUserJson();
         cargarProviderJson();
+        cargarSaleJson();
 
     }
 
@@ -137,5 +139,24 @@ public class DataInitalizer implements CommandLineRunner {
             e.printStackTrace();
         }
     }
+
+    private void cargarSaleJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try (InputStream inputStream = getClass().getResourceAsStream("/sale.json")) {
+            // Lee el JSON y convierte a una lista de ProductDTO
+            List<SaleDTO> saleDTOS = objectMapper.readValue(inputStream, new TypeReference<List<SaleDTO>>() {});
+
+            for (SaleDTO saleDTO : saleDTOS) {
+                // Mapea ProductDTO a la entidad Product
+                Sale sale = defaultModelMapper.map(saleDTO, Sale.class);
+                // Guarda la entidad Product
+                saleService.save(sale);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //
 
 }

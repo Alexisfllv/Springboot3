@@ -2,6 +2,8 @@ package com.edu.config;
 
 import com.edu.dto.CategoryDTO;
 import com.edu.model.Category;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +21,6 @@ public class MapperConfig {
     public ModelMapper categoryMapper() {
 
         ModelMapper modelMapper = new ModelMapper();
-
         //Handle Missmatches
 
 

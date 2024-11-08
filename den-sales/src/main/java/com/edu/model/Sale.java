@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -37,7 +38,7 @@ public class Sale {
 
 
     @Column(nullable = false)
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
     @Column(nullable = false,columnDefinition = "decimal(6,2)")
     private double total;
