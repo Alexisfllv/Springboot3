@@ -181,6 +181,13 @@ public class CategoryController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //metodo queries
+    @GetMapping("/buscar/name/{name}")
+    public ResponseEntity<List<CategoryDTO>> findByName(@PathVariable String name) throws Exception {
+        List<CategoryDTO> buscarPorName =  mapperUtil.mapList(service.buscarNombreCategory(name),CategoryDTO.class,"categoryMapper");
+        return new ResponseEntity<>(buscarPorName,HttpStatus.OK);
+    }
+
 
 
 }

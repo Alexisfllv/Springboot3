@@ -19,5 +19,61 @@
     "priceProduct" : 50.00,
     "descriptionProduct" : "balon mundial",
     "enabledProduct" : true
+  },
+  {
+    "idCategory" : 1,
+    "nameProduct" : "Smartphone Galaxy S23",
+    "priceProduct" : 999.99,
+    "descriptionProduct" : "Samsung flagship phone",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 1,
+    "nameProduct" : "Bluetooth Headphones",
+    "priceProduct" : 199.99,
+    "descriptionProduct" : "Noise-canceling over-ear headphones",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 2,
+    "nameProduct" : "The Art of Java Programming",
+    "priceProduct" : 45.00,
+    "descriptionProduct" : "Comprehensive guide to Java programming",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 2,
+    "nameProduct" : "Data Structures and Algorithms",
+    "priceProduct" : 35.00,
+    "descriptionProduct" : "Learn the fundamentals of data structures and algorithms",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 3,
+    "nameProduct" : "Winter Jacket",
+    "priceProduct" : 120.00,
+    "descriptionProduct" : "Warm, insulated jacket for cold weather",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 3,
+    "nameProduct" : "Running Shoes",
+    "priceProduct" : 80.00,
+    "descriptionProduct" : "Comfortable shoes for running",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 5,
+    "nameProduct" : "Football Jersey",
+    "priceProduct" : 60.00,
+    "descriptionProduct" : "Official team jersey for football fans",
+    "enabledProduct" : true
+  },
+  {
+    "idCategory" : 5,
+    "nameProduct" : "Yoga Mat",
+    "priceProduct" : 30.00,
+    "descriptionProduct" : "Non-slip mat for yoga and fitness exercises",
+    "enabledProduct" : true
   }
 ]

@@ -7,4 +7,7 @@ import java.util.List;
 public interface ICategoryService extends  ICRUD<Category,Integer> {
 
 
+
+    //definir el metodo
+    List<Category> buscarNombreCategory(String categoryName);
 }

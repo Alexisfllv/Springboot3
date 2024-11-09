@@ -22,4 +22,10 @@ public class CategoryServiceImpl  extends CRUDImpl<Category,Integer> implements 
     protected IGenericJPARepo<Category, Integer> getRepo() {
         return repo;
     }
+
+    //METODO QUERIES
+    @Override
+    public List<Category> buscarNombreCategory(String categoryName) {
+        return repo.findByName(categoryName);
+    }
 }

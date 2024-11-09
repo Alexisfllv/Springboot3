@@ -111,6 +111,55 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //queries
+    //BUSCAR POR PALABRA DENTRO DE NOMBRE PRODUCTO
+    @GetMapping("/buscar/palabra/{palabra}")
+    public ResponseEntity<List<ProductDTO>> findByPalabra(@PathVariable String palabra) throws Exception {
+        List<ProductDTO> busquedaPalabra = mapperUtil.mapList(service.buscarNombreDentroDeProducto(palabra),ProductDTO.class);
+        return new ResponseEntity<>(busquedaPalabra,HttpStatus.OK);
+    }
+
+    //ENCONTRAR PRODUCTOS POR NOMBRE NOMBRE CATEGORIA
+    @GetMapping("/encontrar/categoryNombre/{categoriaNombre}")
+    public ResponseEntity<List<ProductDTO>> buscarCategoriaNombre(@PathVariable String categoriaNombre) throws Exception {
+        List<ProductDTO> productoxnombreCategory = mapperUtil.mapList(service.buscarProductoPorNombreCategory(categoriaNombre),ProductDTO.class);
+        return new ResponseEntity<>(productoxnombreCategory,HttpStatus.OK);
+    }
+
+    @GetMapping("/category/{categoryName}")
+    public List<Product> getProductsByCategory(@PathVariable String categoryName) {
+        return service.buscarProductoPorNombreCategory(categoryName);
+    }
+
+    //ENCONTRAR PRODUCTOS POR ID CATEGORIA
+    @GetMapping("/encontrar/categoryId/{categoryId}")
+    public ResponseEntity<List<ProductDTO>> buscarPorIdCategory(@PathVariable Integer categoryId) throws Exception {
+        List<ProductDTO> idCategory = mapperUtil.mapList(service.buscarProductoPorIdCategoria(categoryId),ProductDTO.class);
+        return new ResponseEntity<>(idCategory,HttpStatus.OK);
+    }
+
+    //BUSCAR PRODUCTO POR RANGO DE PRECIOS MINIMO/MAXIMO
+    @GetMapping("/encontrar/rango/{minimo}/{maximo}")
+    public ResponseEntity<List<ProductDTO>> rangoPrecios(@PathVariable Integer minimo, @PathVariable Integer maximo) throws Exception {
+        List<ProductDTO> rangoPrecios = mapperUtil.mapList(service.buscarProductoPorRangoDePrecios(minimo, maximo),ProductDTO.class);
+        return new ResponseEntity<>(rangoPrecios,HttpStatus.OK);
+    }
+
+    //LISTADO DE PRECIOS PRODUCTOS EN ASCEDENTE
+    @GetMapping("/listar/ascendete")
+    public ResponseEntity<List<ProductDTO>> listarAscendente() throws Exception {
+        List<ProductDTO> listado = mapperUtil.mapList(service.buscarProductosAscedentes(), ProductDTO.class);
+        return new ResponseEntity<>(listado,HttpStatus.OK);
+    }
+
+    //LISTADO DE PRECIOS PRODUCTOS EN DESCENDETENS
+    @GetMapping("/listar/descendente")
+    public ResponseEntity<List<ProductDTO>> listarDescendente() throws Exception {
+        List<ProductDTO> listado = mapperUtil.mapList(service.buscarProductosDescendetes(), ProductDTO.class);
+        return new ResponseEntity<>(listado,HttpStatus.OK);
+    }
+
+
 
 
 }

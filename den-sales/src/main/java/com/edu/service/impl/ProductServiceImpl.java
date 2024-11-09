@@ -22,4 +22,39 @@ public class ProductServiceImpl extends CRUDImpl<Product,Integer> implements IPr
     protected IGenericJPARepo<Product, Integer> getRepo() {
         return repo;
     }
+
+    //queries
+
+    @Override
+    public List<Product> buscarNombreDentroDeProducto(String palabra) {
+        return repo.findByNameContaining(palabra);
+    }
+
+    @Override
+    public List<Product> buscarProductoPorNombreCategory(String categoryName) {
+        return repo.findByCategoryName(categoryName);
+    }
+
+
+    @Override
+    public List<Product> buscarProductoPorIdCategoria(Integer idCategory) {
+        return repo.findByCategoryIdCategory(idCategory);
+    }
+
+    @Override
+    public List<Product> buscarProductoPorRangoDePrecios(double minimo, double maximo) {
+        return repo.findByPriceBetween(minimo, maximo);
+    }
+
+    @Override
+    public List<Product> buscarProductosAscedentes() {
+        return repo.findAllByOrderByPriceAsc();
+    }
+
+    @Override
+    public List<Product> buscarProductosDescendetes() {
+        return repo.findAllByOrderByPriceDesc();
+    }
+
+
 }
