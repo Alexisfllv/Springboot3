@@ -139,8 +139,8 @@ public class ProductController {
     }
 
     //BUSCAR PRODUCTO POR RANGO DE PRECIOS MINIMO/MAXIMO
-    @GetMapping("/encontrar/rango/{minimo}/{maximo}")
-    public ResponseEntity<List<ProductDTO>> rangoPrecios(@PathVariable Integer minimo, @PathVariable Integer maximo) throws Exception {
+    @GetMapping("/encontrar/rango")
+    public ResponseEntity<List<ProductDTO>> rangoPrecios(@RequestParam("minimo") Integer minimo, @RequestParam("maximo") Integer maximo) throws Exception {
         List<ProductDTO> rangoPrecios = mapperUtil.mapList(service.buscarProductoPorRangoDePrecios(minimo, maximo),ProductDTO.class);
         return new ResponseEntity<>(rangoPrecios,HttpStatus.OK);
     }
@@ -157,6 +157,22 @@ public class ProductController {
     public ResponseEntity<List<ProductDTO>> listarDescendente() throws Exception {
         List<ProductDTO> listado = mapperUtil.mapList(service.buscarProductosDescendetes(), ProductDTO.class);
         return new ResponseEntity<>(listado,HttpStatus.OK);
+    }
+
+    //JPLQ
+    //BUSCAR POR NOMBRE Y DESCRIPCION
+    @GetMapping("/buscar/nombredesc")
+    public ResponseEntity<List<ProductDTO>> buscarNombreDesc(@RequestParam("name") String name , @RequestParam ("desc") String desc ) throws Exception {
+        List<ProductDTO> nombredesc = mapperUtil.mapList(service.getNameAndDescription1(name,desc),ProductDTO.class);
+        return new ResponseEntity<>(nombredesc,HttpStatus.OK);
+    }
+
+    //metodos 2 , 2 campos visibles
+    @GetMapping("/buscar2/nombredesc")
+    public ResponseEntity<List<ProductDTO>> buscarNombreDesc2(@RequestParam("name") String name , @RequestParam ("desc") String desc ) throws Exception {
+        List<ProductDTO> buscar2 = mapperUtil.mapList(service.getNameAndDescription2(name,desc),ProductDTO.class);
+        return new ResponseEntity<>(buscar2,HttpStatus.OK);
+
     }
 
 

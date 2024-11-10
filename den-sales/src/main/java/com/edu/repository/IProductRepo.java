@@ -3,6 +3,9 @@ package com.edu.repository;
 import com.edu.model.Category;
 import com.edu.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -28,5 +31,16 @@ public interface IProductRepo extends IGenericJPARepo<Product, Integer> {
 
     // Listar por precio descendente
     List<Product> findAllByOrderByPriceDesc();
+
+    //JPQL JAVA PERSISTENCE QUERY LAGNUAGE
+    @Query("FROM Product p WHERE p.name = :name AND p.description LIKE %:desc%")
+    List<Product> getNameAndDescription1(@Param("name") String name, @Param("desc") String description);
+
+    //para metodos de insert , update y delete
+    // @Modifying agregar y retonar un Int que es el numero de filas afectadas
+
+    //mostrar solo filas
+    @Query("SELECT new Product ( p.enabled) FROM Product p WHERE p.name = :name AND p.description LIKE %:desc%")
+    List<Product> getNameAndDescription2(@Param("name") String name, @Param("desc") String description);
 
 }

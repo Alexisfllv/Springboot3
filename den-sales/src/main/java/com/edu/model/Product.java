@@ -37,5 +37,14 @@ public class Product {
     @Column(nullable = false)
     private boolean enabled;
 
+    //constructor de solo 2 vistas name , descripcion
+    public Product(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
+
+    public Product(boolean enabled) {
+        this.enabled = enabled;
+    }
 }

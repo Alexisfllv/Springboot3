@@ -2,6 +2,7 @@ package com.edu.service;
 
 import com.edu.model.Category;
 import com.edu.model.Product;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -44,6 +45,13 @@ public interface IProductService {
 
     //precios de productos descendetes
     List<Product> buscarProductosDescendetes();
+
+    //JPQL
+    List<Product> getNameAndDescription1(String name,String desc);
+
+    //2
+    List<Product> getNameAndDescription2(String name,String desc);
+
 
 
 }

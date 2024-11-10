@@ -57,4 +57,16 @@ public class ProductServiceImpl extends CRUDImpl<Product,Integer> implements IPr
     }
 
 
+    //JPQL
+    @Override
+    public List<Product> getNameAndDescription1(String name, String desc) {
+        return repo.getNameAndDescription1(name, desc);
+    }
+
+    @Override
+    public List<Product> getNameAndDescription2(String name, String desc) {
+        return repo.getNameAndDescription2(name, desc);
+    }
+
+
 }
