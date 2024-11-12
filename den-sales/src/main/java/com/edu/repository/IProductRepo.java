@@ -46,9 +46,9 @@ public interface IProductRepo extends IGenericJPARepo<Product, Integer> {
 
     //QUERIES NATIVOS
     @Query (value = "SELECT * FROM product p WHERE p.description = :description ", nativeQuery = true)
-    List<Product> getNameSQL(@Param("name") String name);
+    List<Product> getNameSQL(@Param("description") String description);
 
     @Modifying
-    @Query(value = "UPDATE category SET name = :name",nativeQuery = true)
+    @Query(value = "UPDATE product SET name = :name",nativeQuery = true)
     Integer updateNames(@Param("name") String name);
 }
