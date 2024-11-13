@@ -48,4 +48,14 @@ public class SaleServiceImpl extends CRUDImpl<Sale,Integer> implements ISaleServ
     public List<IProcedureSale2DTO> listadoCantidadFecha2() {
         return repo.callProcedure2();
     }
+
+    @Override
+    public List<ProcedureSale1DTO> listadoCantidadFecha3() {
+        return repo.callProcedure3();
+    }
+
+    @Override
+    public void callprocedure4() {
+        repo.callProcedure4();
+    }
 }

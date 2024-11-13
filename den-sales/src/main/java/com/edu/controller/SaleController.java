@@ -74,11 +74,24 @@ public class SaleController {
         return ResponseEntity.ok(service.listadoCantidadFecha());
     }
 
-    //interfaz proyectada
+    //interfaz proyectada2
     //metodo prods
     @GetMapping("/resumen2")
     public ResponseEntity<List<IProcedureSale2DTO>> listado2(){
         List<IProcedureSale2DTO> listado = service.listadoCantidadFecha2();
         return new ResponseEntity<>(listado, HttpStatus.OK);
+    }
+    //3
+    @GetMapping("/resumen3")
+    public ResponseEntity<List<ProcedureSale1DTO>> listado3(){
+        List<ProcedureSale1DTO> listado = service.listadoCantidadFecha3();
+        return new ResponseEntity<>(listado, HttpStatus.OK);
+    }
+
+    //4
+    @GetMapping("/resumen4")
+    public ResponseEntity<Void> listado4(){
+        service.callprocedure4();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

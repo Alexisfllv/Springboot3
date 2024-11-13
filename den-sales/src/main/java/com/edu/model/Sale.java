@@ -1,6 +1,7 @@
 package com.edu.model;
 
 
+import com.edu.dto.prod.ProcedureSale1DTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+
+
+@NamedNativeQuery(
+        name = "Sale.fn_sales",
+        query = "select * from fn_sales()",
+        resultSetMapping = "Procedure.ProcedureDTO"
+)
+@SqlResultSetMapping(
+    name = "Procedure.ProcedureDTO",
+        classes = @ConstructorResult(targetClass = ProcedureSale1DTO.class,
+        columns = {
+            @ColumnResult(name = "quantityfn", type = Integer.class),
+                @ColumnResult(name = "datetimefn", type = String.class)
+
+        })
+)
 
 @Data
 @AllArgsConstructor

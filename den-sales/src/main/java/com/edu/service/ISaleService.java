@@ -14,4 +14,10 @@ public interface ISaleService extends  ICRUD<Sale,Integer> {
     //
     List<IProcedureSale2DTO>listadoCantidadFecha2();
 
+
+    //3
+    List<ProcedureSale1DTO>listadoCantidadFecha3();
+
+    //procedimiento 4
+    void callprocedure4();
 }
