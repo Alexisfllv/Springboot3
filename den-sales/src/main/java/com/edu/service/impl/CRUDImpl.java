@@ -4,6 +4,7 @@ import com.edu.exception.ModelNotFoundException;
 import com.edu.repository.IGenericJPARepo;
 import com.edu.service.ICRUD;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 public abstract class CRUDImpl<T,ID> implements ICRUD<T,ID> {
@@ -34,6 +35,15 @@ public abstract class CRUDImpl<T,ID> implements ICRUD<T,ID> {
 
     @Override
     public T update(ID id, T t) throws Exception {
+        //t.setId Java Reflection
+        Class<?> clazz =  t.getClass();
+        String className = clazz.getSimpleName();
+
+        //setId - class
+        String methodName = "setId" + className;
+        Method setIdMethod =  clazz.getMethod(methodName,id.getClass());
+        setIdMethod.invoke(t,id);
+
         //rec id
         getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID NOT FOUND : " +id));
         return getRepo().save(t);

@@ -52,6 +52,8 @@ public class ProviderController {
     //modfiicar
     @PutMapping("/{id}")
     public ResponseEntity<ProviderDTO> atualizar(@Valid @PathVariable("id") Integer id, @RequestBody ProviderDTO dto) throws Exception {
+        //enviar el id al body json
+        //dto.setIdProvider(id);
         Provider act = service.update(id, mapperUtil.map(dto, Provider.class));
         return new ResponseEntity<>(mapperUtil.map(act, ProviderDTO.class), HttpStatus.OK);
     }
