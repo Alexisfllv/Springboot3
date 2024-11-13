@@ -1,31 +1,215 @@
 [
   {
-    "client": {
-      "idClient": 1
-    },
-    "user": {
-      "idUser": 1
-    },
+    "client": { "idClient": 1 },
+    "user": { "idUser": 1 },
     "dateTime": "2024-08-26T19:40:38",
     "total": 3080,
     "tax": 554,
     "enabled": "true",
     "details": [
       {
-        "product": {
-          "idProduct": 1
-        },
+        "product": { "idProduct": 1 },
         "quantity": 2,
         "salePrice": 3000,
         "discount": 0
       },
       {
-        "product": {
-          "idProduct": 2
-        },
+        "product": { "idProduct": 2 },
         "quantity": 1,
         "salePrice": 80,
         "discount": 0
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 2 },
+    "user": { "idUser": 2 },
+    "dateTime": "2024-08-27T12:15:22",
+    "total": 4500,
+    "tax": 810,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 1 },
+        "quantity": 3,
+        "salePrice": 3000,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 3 },
+        "quantity": 2,
+        "salePrice": 700,
+        "discount": 50
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 3 },
+    "user": { "idUser": 1 },
+    "dateTime": "2024-08-27T14:40:00",
+    "total": 1350,
+    "tax": 243,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 4 },
+        "quantity": 1,
+        "salePrice": 1000,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 5 },
+        "quantity": 2,
+        "salePrice": 150,
+        "discount": 50
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 4 },
+    "user": { "idUser": 3 },
+    "dateTime": "2024-08-28T08:30:10",
+    "total": 2500,
+    "tax": 450,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 2 },
+        "quantity": 3,
+        "salePrice": 80,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 1 },
+        "quantity": 2,
+        "salePrice": 3000,
+        "discount": 100
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 5 },
+    "user": { "idUser": 4 },
+    "dateTime": "2024-08-28T09:05:50",
+    "total": 1500,
+    "tax": 270,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 6 },
+        "quantity": 1,
+        "salePrice": 1500,
+        "discount": 0
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 2 },
+    "user": { "idUser": 2 },
+    "dateTime": "2024-08-29T10:00:00",
+    "total": 2100,
+    "tax": 378,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 1 },
+        "quantity": 2,
+        "salePrice": 3000,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 4 },
+        "quantity": 1,
+        "salePrice": 1000,
+        "discount": 50
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 3 },
+    "user": { "idUser": 3 },
+    "dateTime": "2024-08-30T16:30:22",
+    "total": 5600,
+    "tax": 1008,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 5 },
+        "quantity": 4,
+        "salePrice": 150,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 2 },
+        "quantity": 2,
+        "salePrice": 80,
+        "discount": 10
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 2 },
+    "user": { "idUser": 1 },
+    "dateTime": "2024-08-31T11:25:40",
+    "total": 4200,
+    "tax": 756,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 1 },
+        "quantity": 2,
+        "salePrice": 3000,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 3 },
+        "quantity": 2,
+        "salePrice": 700,
+        "discount": 100
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 1 },
+    "user": { "idUser": 4 },
+    "dateTime": "2024-09-01T13:00:45",
+    "total": 3500,
+    "tax": 630,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 2 },
+        "quantity": 1,
+        "salePrice": 80,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 1 },
+        "quantity": 4,
+        "salePrice": 3000,
+        "discount": 100
+      }
+    ]
+  },
+  {
+    "client": { "idClient": 2 },
+    "user": { "idUser": 2 },
+    "dateTime": "2024-09-02T18:35:10",
+    "total": 2200,
+    "tax": 396,
+    "enabled": "true",
+    "details": [
+      {
+        "product": { "idProduct": 4 },
+        "quantity": 2,
+        "salePrice": 1000,
+        "discount": 0
+      },
+      {
+        "product": { "idProduct": 5 },
+        "quantity": 1,
+        "salePrice": 150,
+        "discount": 50
       }
     ]
   }

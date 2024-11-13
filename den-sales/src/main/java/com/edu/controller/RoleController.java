@@ -1,6 +1,7 @@
 package com.edu.controller;
 
 import com.edu.dto.RoleDTO;
+import com.edu.dto.SaleDTO;
 import com.edu.dto.UserDTO;
 import com.edu.model.Role;
 import com.edu.model.User;
@@ -58,6 +59,8 @@ public class RoleController {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 
 
 

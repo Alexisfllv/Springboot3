@@ -1,6 +1,8 @@
 package com.edu.controller;
 
 import com.edu.dto.SaleDTO;
+import com.edu.dto.prod.IProcedureSale2DTO;
+import com.edu.dto.prod.ProcedureSale1DTO;
 import com.edu.model.Sale;
 import com.edu.service.impl.SaleServiceImpl;
 import com.edu.util.MapperUtil;
@@ -56,5 +58,27 @@ public class SaleController {
     public ResponseEntity<Void> eliminar(@PathVariable ("id") Integer id) throws Exception {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //
+    //metodo prods
+    @GetMapping("/resumen1")
+    public ResponseEntity<List<ProcedureSale1DTO>> listado(){
+        List<ProcedureSale1DTO> listado = service.listadoCantidadFecha();
+        return new ResponseEntity<>(listado, HttpStatus.OK);
+    }
+
+    //
+    @GetMapping("/resumen10")
+    public ResponseEntity<List<?>> listado10(){
+        return ResponseEntity.ok(service.listadoCantidadFecha());
+    }
+
+    //interfaz proyectada
+    //metodo prods
+    @GetMapping("/resumen2")
+    public ResponseEntity<List<IProcedureSale2DTO>> listado2(){
+        List<IProcedureSale2DTO> listado = service.listadoCantidadFecha2();
+        return new ResponseEntity<>(listado, HttpStatus.OK);
     }
 }
