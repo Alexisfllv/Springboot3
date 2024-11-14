@@ -1,5 +1,6 @@
 package com.edu.exception;
 
+import com.edu.dto.Response.GenericResponse;
 import org.springframework.http.*;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -24,12 +26,20 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    //error de parametros
+    //error de parametros ESTANDAR
+//    @ExceptionHandler(ModelNotFoundException.class)
+//    public ResponseEntity<CustomErrorResponse> handleModelNotFoundException(ModelNotFoundException e , WebRequest request) {
+//        CustomErrorResponse errorResponse =  new CustomErrorResponse
+//                (ZonedDateTime.now(),e.getMessage(),request.getDescription(false));
+//        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+//    }
+
+    // con generic response
     @ExceptionHandler(ModelNotFoundException.class)
-    public ResponseEntity<CustomErrorResponse> handleModelNotFoundException(ModelNotFoundException e , WebRequest request) {
+    public ResponseEntity<GenericResponse<CustomErrorResponse>> handleModelNotFoundException(ModelNotFoundException e , WebRequest request) {
         CustomErrorResponse errorResponse =  new CustomErrorResponse
                 (ZonedDateTime.now(),e.getMessage(),request.getDescription(false));
-        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new GenericResponse<>(400,"error", Arrays.asList(errorResponse)), HttpStatus.BAD_REQUEST);
     }
 
 
