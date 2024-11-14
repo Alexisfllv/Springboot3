@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -94,4 +95,30 @@ public class SaleController {
         service.callprocedure4();
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    //STREAM API
+    @GetMapping("/stream1")
+    public ResponseEntity<SaleDTO> maxTotal(){
+        SaleDTO max =  mapperUtil.map(service.getSaleMostExpensive(),SaleDTO.class);
+        return new ResponseEntity<>(max,HttpStatus.OK);
+    }
+
+    //STREAM API
+    @GetMapping("/stream2")
+    public ResponseEntity<String> bestSeller(){
+        String username =  service.getBestSeller();
+        return new ResponseEntity<>(username,HttpStatus.OK);
+    }
+    @GetMapping("/stream3")
+    public ResponseEntity<Map<String,Long>> getSellerCount(){
+        Map<String,Long> best =  service.getSaleCounterBySeller();
+        return new ResponseEntity<>(best,HttpStatus.OK);
+    }
+
+    @GetMapping("/stream4")
+    public ResponseEntity<Map<String,Double>> getmostSellerProduct(){
+        Map<String,Double> byProduct =  service.getMostSellProduct();
+        return new ResponseEntity<>(byProduct,HttpStatus.OK);
+    }
+
 }
