@@ -11,6 +11,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -186,6 +189,36 @@ public class CategoryController {
     public ResponseEntity<List<CategoryDTO>> findByName(@PathVariable String name) throws Exception {
         List<CategoryDTO> buscarPorName =  mapperUtil.mapList(service.buscarNombreCategory(name),CategoryDTO.class,"categoryMapper");
         return new ResponseEntity<>(buscarPorName,HttpStatus.OK);
+    }
+
+    //paginable
+    @GetMapping("/pagination")
+    public ResponseEntity<Page<CategoryDTO>> findPage(Pageable pageable) throws Exception {
+        Page<CategoryDTO> pge = service.buscarCategorias(pageable).map(
+                e -> mapperUtil.map(e,CategoryDTO.class,"categoryMapper")
+        );
+        return ResponseEntity.ok(pge);
+    }
+
+    //paginable2
+    @GetMapping("/pagination2")
+    public ResponseEntity<Page<CategoryDTO>> findPage2(
+            @RequestParam(name = "p" , defaultValue = "0") int page,
+            @RequestParam(name = "s" , defaultValue = "2")int size
+    ) throws Exception {
+        Page<CategoryDTO> pge = service.buscarCategorias(PageRequest.of(page,size)).map(
+                e -> mapperUtil.map(e,CategoryDTO.class,"categoryMapper")
+        );
+        return ResponseEntity.ok(pge);
+    }
+
+    //ordenamiento por nombre
+    @GetMapping("/orderName")
+    public ResponseEntity<List<CategoryDTO>> findOrderName(
+            @RequestParam (name = "param",defaultValue = "ASC")String param
+    ) throws Exception {
+        List<CategoryDTO> listar = mapperUtil.mapList(service.findAllOrder(param),CategoryDTO.class,"categoryMapper");
+        return new ResponseEntity<>(listar,HttpStatus.OK);
     }
 
 
