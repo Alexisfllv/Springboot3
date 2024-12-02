@@ -2,6 +2,7 @@ package com.edu.controller;
 
 import com.edu.dto.CategoryDTO;
 import com.edu.dto.CategoryDTO;
+import com.edu.dto.Response.GenericResponse;
 import com.edu.model.Category;
 import com.edu.model.Category;
 import com.edu.record.CategoryRecord;
@@ -150,6 +151,16 @@ public class CategoryController {
 //    }
 
     //modo 4
+
+    //generic response
+
+    @GetMapping
+    public ResponseEntity<GenericResponse<CategoryDTO>> readAll1() throws Exception {
+        List<CategoryDTO> lista = mapperUtil.mapList(service.findAll(),CategoryDTO.class,"categoryMapper");
+        return ResponseEntity.ok(new GenericResponse<>(200,"success",lista));
+
+    }
+
 
     @GetMapping("/listar")
     public ResponseEntity<List<CategoryDTO>> listar() throws Exception {
