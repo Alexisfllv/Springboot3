@@ -6,6 +6,7 @@ import com.edu.dto.Response.GenericResponse;
 import com.edu.model.Category;
 import com.edu.model.Category;
 import com.edu.record.CategoryRecord;
+import com.edu.service.ICategoryService;
 import com.edu.service.impl.CategoryServiceImpl;
 import com.edu.util.MapperUtil;
 import jakarta.validation.Valid;
@@ -19,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +30,7 @@ import java.util.UUID;
 public class CategoryController {
 
     //ioc
-    private final CategoryServiceImpl service;
+    private final ICategoryService service;
 
 //    @Qualifier("categoryMapper")
 //    private final ModelMapper modelMapper;
@@ -161,6 +163,21 @@ public class CategoryController {
 
     }
 
+//    @GetMapping("/gen/{id}")
+//    public ResponseEntity<GenericResponse<CategoryDTO>> findById2(@PathVariable Integer id) throws Exception {
+//        Category buscarid = service.findById(id);
+//        return ResponseEntity.ok(new GenericResponse<>(200,"success",mapperUtil.map(buscarid,CategoryDTO.class,"categoryMapper")));
+//    }
+
+    @GetMapping("/gec/{id}")
+    public ResponseEntity<GenericResponse<CategoryDTO>> readById(@PathVariable("id") Integer id) throws Exception{
+        CategoryDTO obj = mapperUtil.map(service.findById(id), CategoryDTO.class, "categoryMapper");
+
+        //return ResponseEntity.ok(mapperUtil.map(obj, CategoryDTO.class, "categoryMapper"));
+        return ResponseEntity.ok(new GenericResponse<>(200, "success", Arrays.asList(obj)));
+    }
+
+
 
     @GetMapping("/listar")
     public ResponseEntity<List<CategoryDTO>> listar() throws Exception {
@@ -174,6 +191,9 @@ public class CategoryController {
         Category buscarid = service.findById(id);
         return new ResponseEntity<>(mapperUtil.map(buscarid,CategoryDTO.class,"categoryMapper"), HttpStatus.OK);
     }
+
+
+
 
 
     @PostMapping
