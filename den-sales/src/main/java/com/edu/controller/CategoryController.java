@@ -212,7 +212,7 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) throws Exception {
         service.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //metodo queries
