@@ -23,5 +23,10 @@
     "name": "Sports",
     "description": "Equipment and clothing for various sports.",
     "enabled": true
+  },
+  {
+    "name": "maybe",
+    "description": "Equipment and clothing for various sports.",
+    "enabled": true
   }
 ]
