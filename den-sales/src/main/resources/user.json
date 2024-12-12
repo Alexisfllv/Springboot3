@@ -11,7 +11,7 @@
   {
     "idUser": 2,
     "role": {
-      "idRole": 2
+      "idRole": 3
     },
     "usernameUser": "janedoe",
     "passwordUser": "$2y$12$U9Li0eNaxUEyEsSRzSBvdO34u3p6fi7NA7HOhXWwvlAadA17fFBZG",
@@ -20,7 +20,7 @@
   {
     "idUser": 3,
     "role": {
-      "idRole": 2
+      "idRole": 3
     },
     "usernameUser": "mikejohnson",
     "passwordUser": "$2y$12$U9Li0eNaxUEyEsSRzSBvdO34u3p6fi7NA7HOhXWwvlAadA17fFBZG",

@@ -18,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -156,6 +157,9 @@ public class CategoryController {
 
     //generic response
 
+    @PreAuthorize("@authService.hasAccess()")
+    //asignar solo acceso al rol ADMIN
+    //@PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     @GetMapping
     public ResponseEntity<GenericResponse<CategoryDTO>> readAll1() throws Exception {
         List<CategoryDTO> lista = mapperUtil.mapList(service.findAll(),CategoryDTO.class,"categoryMapper");
