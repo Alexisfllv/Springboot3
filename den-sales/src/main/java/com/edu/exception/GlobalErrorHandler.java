@@ -2,6 +2,7 @@ package com.edu.exception;
 
 import com.edu.dto.Response.GenericResponse;
 import org.springframework.http.*;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -22,7 +23,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<CustomErrorResponse> handleDefaultException (Exception e , WebRequest request) {
         CustomErrorResponse errorResponse =  new CustomErrorResponse
-                (ZonedDateTime.now(),e.getMessage(),request.getDescription(false));
+                (LocalDateTime.now(),e.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -38,7 +39,7 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ModelNotFoundException.class)
     public ResponseEntity<GenericResponse<CustomErrorResponse>> handleModelNotFoundException(ModelNotFoundException e , WebRequest request) {
         CustomErrorResponse errorResponse =  new CustomErrorResponse
-                (ZonedDateTime.now(),e.getMessage(),request.getDescription(false));
+                (LocalDateTime.now(),e.getMessage(),request.getDescription(false));
         return new ResponseEntity<>(new GenericResponse<>(400,"error", Arrays.asList(errorResponse)), HttpStatus.BAD_REQUEST);
     }
 
@@ -76,7 +77,15 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         String message = ex.getBindingResult().getFieldError().getDefaultMessage();
 
         CustomErrorResponse errorResponse =  new CustomErrorResponse
-               (ZonedDateTime.now(),messagelist,req.getDescription(false));
+               (LocalDateTime.now(),messagelist,req.getDescription(false));
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    //ERROR CUANDO VENGA DEL JWT en username
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<CustomErrorResponse> handleUsernameNotFoundException (Exception e , WebRequest request) {
+        CustomErrorResponse errorResponse =  new CustomErrorResponse
+                (LocalDateTime.now(),e.getMessage(),request.getDescription(false));
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
     }
 }
