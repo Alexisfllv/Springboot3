@@ -32,13 +32,13 @@ public class DataInitalizer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        cargarCategoryJson();
-        cargarProductJson();
-        cargarClientJson();
-        cargarRoleJson();
-        cargarUserJson();
-        cargarProviderJson();
-        cargarSaleJson();
+//        cargarCategoryJson();
+//        cargarProductJson();
+//        cargarClientJson();
+//        cargarRoleJson();
+//        cargarUserJson();
+//        cargarProviderJson();
+//        cargarSaleJson();
 
     }
 
