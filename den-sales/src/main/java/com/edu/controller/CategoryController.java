@@ -28,6 +28,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/categories")
 @RequiredArgsConstructor
+//permisos libres
+@CrossOrigin(origins = "*")
 public class CategoryController {
 
     //ioc
